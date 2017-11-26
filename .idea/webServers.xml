@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a9b93b15-cb93-438c-bdcc-9bc93a8c5015" name="https://github.com/kng83/bobo.git" url="https://github.com/kng83/bobo.git">
+        <fileTransfer host="https://github.com/kng83/bobo.git" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
