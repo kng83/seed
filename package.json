@@ -1,23 +1,37 @@
 {
   "name": "bobo",
   "version": "1.0.0",
-  "description": "",
+  "description": "dadadaczcz",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "4ever": "nodemon out/app.js --watch",
     "tscomp": "tsc --watch",
-    "start": "concurrently \"npm run 4ever\" \"npm run tscomp\""
+    "start": "concurrently \"npm run 4ever\" \"npm run tscomp\"",
+    "bs": "browser-sync start --proxy http://localhost:3000 browser chrome --port 5000 --files out/**/*.* --reload-delay 100",
+    "tsc": "npm run tscomp && npm run 4ever",
+    "server": "concurrently \"npm run 4ever\" \"npm run tscomp\" \"npm run bs\""
   },
   "author": "kng83",
   "license": "MIT",
   "devDependencies": {
+    "@types/express": "^4.0.39",
     "@types/node": "^8.0.53",
+    "browser-sync": "^2.18.13",
     "concurrently": "^3.5.1",
     "nodemon": "^1.12.1",
     "typescript": "^2.6.1"
   },
   "dependencies": {
-    "@types/lodash": "^4.14.85"
-  }
+    "@types/lodash": "^4.14.85",
+    "express": "^4.16.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kng83/bobo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kng83/bobo/issues"
+  },
+  "homepage": "https://github.com/kng83/bobo#readme"
 }

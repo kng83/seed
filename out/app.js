@@ -1,9 +1,17 @@
 "use strict";
 exports.__esModule = true;
-var _ = require("lodash");
-var bobo = function () { console.log('Hi there'); };
-bobo();
-var myArr = [1, 2, 3, 5, 6, 7];
-var check = _.floor(4.55);
-console.log(check);
+var express = require("express");
+var app = express();
+var port = 3000;
+app.get('/name/:user_name', function (req, res) {
+    res.status(200);
+    res.set('Content-Type', 'text/html');
+    var helpParams = req.params.user_name;
+    res.end("<html><body><h1>Witaj uzytkowniku: " + helpParams + "</h1><p>To jest bardzo dlugie zdanie przekraczajace linie</p></body><html>");
+});
+app.get('/', function (req, res) {
+    res.sendFile('index.html', { root: __dirname });
+});
+app.listen(port, function () { return console.log('Listen on Port: 3000 '); });
+console.log('this is pawel');
 //# sourceMappingURL=app.js.map
