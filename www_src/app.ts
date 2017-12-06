@@ -10,7 +10,7 @@ app.get('/name/:user_name', (req: Request, res: Response)=>{
     res.status(200);
     res.set('Content-Type','text/html');
     let helpParams = req.params.user_name;
-    res.end(`<html><body><h1>Witaj uzytkowniku: ${helpParams}</h1><p>To jest bardzo dlugie zdanie przekraczajace linie</p></body><html>`)
+    res.end(`<html><body><h1>Witaj uzytkowniku:: ${helpParams}</h1><p>To jest bardzo dlugie zdanie przekraczajace linie</p></body><html>`)
 
 });
 app.get('/',(req: Request, res: Response)=>{
