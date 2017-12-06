@@ -1,0 +1,12 @@
+Wazne komendy gita:
+//Zmiana adresu remote repository
+fatal: remote origin already exists. - git remote set-url origin https://github.com/kng83/seed.git
+
+//git checkout master -B  -> robi master branch
+//git init -> inicjalizuje repo
+//git add -> dodaje do stage'a
+//git commit -m commit "first commit"-> dodoaje do head
+//git remote add origin https://github.com/kng83/seed.git -> dodaje twoje zrodlo do zdalnego server (dla nowego repo) remota
+//git push origin master -> wysyla zmiany na server
+//git log -> logi
+//git status -s -> sprawdza status czy staged czy nie
