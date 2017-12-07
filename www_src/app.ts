@@ -1,24 +1,37 @@
 import * as _ from 'lodash';
 import * as express from 'express';
 import {Response, Request} from 'express';
+import * as path from 'path';
+import * as bodyParser from 'body-parser';
+import * as serveStatic from 'serve-static';
+
 // import path from 'path';
 
 const app = express();
 const port = 3000;
 
-app.get('/name/:user_name', (req: Request, res: Response) => {
-    res.status(200);
-    res.set('Content-Type', 'text/html');
-    const helpParams = req.params.user_name;
-    res.end(`<html><body><h1>Witaj uzytkowniku:: ${helpParams}</h1><p>To jest bardzo dlugie zdanie przekraczajace linie</p></body><html>`)
 
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
+    next();
+  });
+
+  const dirname = path.join(__dirname, '..', 'dist');
+
+// app.use(serveStatic(dirname , {'index': 'index.html'}));
+app.use(express.static(dirname));
+app.use( bodyParser.json() );
+console.log(__dirname);
+
+app.get('/name', (req: Request, res: Response) => {
+    res.sendFile('index.html', {root: dirname});
 });
-app.get('/', (req: Request, res: Response) => {
-    res.sendFile('index.html', {root: __dirname});
-});
+
 
 app.listen(port, () => console.log('Listen on Port: 3000 '));
-console.log('this is pawels');
+console.log('this is pawel');
 
 
 

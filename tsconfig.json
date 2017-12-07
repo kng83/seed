@@ -1,7 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./www_out",
+    "module": "commonJs",
+    "outDir": "www_server",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -15,5 +16,11 @@
       "es2017",
       "dom"
     ]
-  }
+ },
+  "include": [
+    "www_src/**/*"
+  ],
+  "exclude": [
+    "src"
+  ]
 }
