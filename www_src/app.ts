@@ -8,7 +8,8 @@ import * as serveStatic from 'serve-static';
 // import path from 'path';
 
 const app = express();
-const port = 3000;
+const PORT = 3000;
+const DIR_TS_OUT = 'public';
 
 
 app.use(function(req, res, next) {
@@ -18,20 +19,24 @@ app.use(function(req, res, next) {
     next();
   });
 
-  const dirname = path.join(__dirname, '..', 'dist');
+  const dirname = path.join(__dirname, '..', DIR_TS_OUT);
 
 // app.use(serveStatic(dirname , {'index': 'index.html'}));
 app.use(express.static(dirname));
 app.use( bodyParser.json() );
 console.log(__dirname);
-
-app.get('/name', (req: Request, res: Response) => {
+console.log(__dirname);
+app.get('/tarot', (req: Request, res: Response) => {
     res.sendFile('index.html', {root: dirname});
+});
+app.get('*', (req:Request, res: Response)=> {
+  res.sendFile('index.html', {root: dirname});
 });
 
 
-app.listen(port, () => console.log('Listen on Port: 3000 '));
-console.log('this is pawel');
+app.listen(PORT, () => console.log(`Listen on Port: ${PORT}`));
+console.log('this is super pawdel');
+
 
 
 
