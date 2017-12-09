@@ -4,8 +4,10 @@ import {Response, Request} from 'express';
 import * as path from 'path';
 import * as bodyParser from 'body-parser';
 import * as serveStatic from 'serve-static';
+import * as routes from './routes/route';
 
 // import path from 'path';
+routes.routes();
 
 const app = express();
 const PORT = 3000;
@@ -24,12 +26,8 @@ app.use(function(req, res, next) {
 // app.use(serveStatic(dirname , {'index': 'index.html'}));
 app.use(express.static(dirname));
 app.use( bodyParser.json() );
-console.log(__dirname);
-console.log(__dirname);
-app.get('/tarot', (req: Request, res: Response) => {
-    res.sendFile('index.html', {root: dirname});
-});
-app.get('*', (req:Request, res: Response)=> {
+
+app.get('*', (req: Request, res: Response) => {
   res.sendFile('index.html', {root: dirname});
 });
 

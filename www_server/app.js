@@ -3,7 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var path = require("path");
 var bodyParser = require("body-parser");
+var routes = require("./routes/route");
 // import path from 'path';
+routes.routes();
 var app = express();
 var PORT = 3000;
 var DIR_TS_OUT = 'public';
@@ -17,11 +19,6 @@ var dirname = path.join(__dirname, '..', DIR_TS_OUT);
 // app.use(serveStatic(dirname , {'index': 'index.html'}));
 app.use(express.static(dirname));
 app.use(bodyParser.json());
-console.log(__dirname);
-console.log(__dirname);
-app.get('/tarot', function (req, res) {
-    res.sendFile('index.html', { root: dirname });
-});
 app.get('*', function (req, res) {
     res.sendFile('index.html', { root: dirname });
 });
